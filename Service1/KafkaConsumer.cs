@@ -39,8 +39,7 @@ public class KafkaConsumer
             BootstrapServers = "localhost:29092",
             GroupId = "SendSMSGroup",
             AllowAutoCreateTopics = true,
-            AutoOffsetReset = AutoOffsetReset.Earliest,
-            EnableAutoCommit = false
+            AutoOffsetReset = AutoOffsetReset.Earliest
         }).SetValueDeserializer(new K());
 
         if (typeof(T) != typeof(Null) && (IDeserializer<T>?)sampleObject is not null)

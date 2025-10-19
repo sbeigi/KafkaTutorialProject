@@ -40,6 +40,7 @@ public class KafkaProducer
             ClientId = "P1",
             AllowAutoCreateTopics = true,
             EnableIdempotence = true,
+            Partitioner = Partitioner.Consistent,
             Acks = Acks.All,
             CompressionType = CompressionType.Snappy
         }).SetValueSerializer(new K());

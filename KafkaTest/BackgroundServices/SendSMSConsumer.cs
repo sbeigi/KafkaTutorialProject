@@ -15,6 +15,7 @@ public class SendSMSConsumer(KafkaConsumer _consumer) : BackgroundService
                 consumer.Subscribe(_topic);
                 var message = consumer.Consume();
                 Console.WriteLine($"Consumer 1 --> {message.Message.Value.MobileNumber}");
+                consumer.Commit();
             }
         }, stoppingToken);
 
@@ -27,6 +28,7 @@ public class SendSMSConsumer(KafkaConsumer _consumer) : BackgroundService
                 consumer.Subscribe(_topic);
                 var message = consumer.Consume();
                 Console.WriteLine($"Consumer 2 --> {message.Message.Value.MobileNumber}");
+                consumer.Commit();
             }
         }, stoppingToken);
     }
